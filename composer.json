@@ -1,0 +1,24 @@
+{
+    "name": "psg/psr-100",
+    "description": "Common interface for HTTP messages",
+    "keywords": ["psr", "psr-100", "http", "http-message", "request", "response", "factory"],
+    "homepage": "https://github.com/php-sg/psr-100",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PHP-SG",
+            "homepage": "http://php-sg.org/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "psr/http-message": "^1.0",
+        "psr/http-factory": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Psg\\Http\\Message\\": "src/"
+        }
+    }
+}
+
