@@ -1,15 +1,15 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Psg\Http\Message;
 
-interface UriInterface extends \Psr\Http\Message\UriInterface, UriFactoryInterface{
+interface UriInterface extends \Psr\Http\Message\UriInterface, UriFactoryInterface
+{
     /**
      * Create a new URI.
      *
-     * @param string $uri
-     *
-     * @return UriInterface
-     *
-     * @throws \InvalidArgumentException If the given URI cannot be parsed.
+     * @throws \InvalidArgumentException if the given URI cannot be parsed
      */
-    public function create(string $uri = ''): UriInterface;
+    public function create(string $uri = ''): self;
 }

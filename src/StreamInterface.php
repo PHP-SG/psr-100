@@ -1,19 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Psg\Http\Message;
 
 /** Adds factory methods */
-interface StreamInterface extends \Psr\Http\Message\StreamInterface, StreamFactoryInterface{
+interface StreamInterface extends \Psr\Http\Message\StreamInterface, StreamFactoryInterface
+{
     /**
      * Create a new stream from a string.
      *
      * The stream SHOULD be created with a temporary resource.
      *
-     * @param string $content String content with which to populate the stream.
-     *
-     * @return StreamInterface
+     * @param string $content string content with which to populate the stream
      */
-    public function create(string $content = ''): StreamInterface;
+    public function create(string $content = ''): self;
 
     /**
      * Create a stream from an existing file.
@@ -23,23 +24,20 @@ interface StreamInterface extends \Psr\Http\Message\StreamInterface, StreamFacto
      *
      * The `$filename` MAY be any string supported by `fopen()`.
      *
-     * @param string $filename Filename or stream URI to use as basis of stream.
-     * @param string $mode Mode with which to open the underlying filename/stream.
+     * @param string $filename filename or stream URI to use as basis of stream
+     * @param string $mode mode with which to open the underlying filename/stream
      *
-     * @return StreamInterface
-     * @throws \RuntimeException If the file cannot be opened.
-     * @throws \InvalidArgumentException If the mode is invalid.
+     * @throws \RuntimeException if the file cannot be opened
+     * @throws \InvalidArgumentException if the mode is invalid
      */
-    public function createFromFile(string $filename, string $mode = 'r'): StreamInterface;
+    public function createFromFile(string $filename, string $mode = 'r'): self;
 
     /**
      * Create a new stream from an existing resource.
      *
      * The stream MUST be readable and may be writable.
      *
-     * @param resource $resource PHP resource to use as basis of stream.
-     *
-     * @return StreamInterface
+     * @param resource $resource PHP resource to use as basis of stream
      */
-    public function createFromResource($resource): StreamInterface;
+    public function createFromResource($resource): self;
 }

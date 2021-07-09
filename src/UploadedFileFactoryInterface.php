@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Psg\Http\Message;
 
 interface UploadedFileFactoryInterface extends \Psr\Http\Message\UploadedFileFactoryInterface
@@ -13,16 +15,14 @@ interface UploadedFileFactoryInterface extends \Psr\Http\Message\UploadedFileFac
      * @see http://php.net/manual/features.file-upload.post-method.php
      * @see http://php.net/manual/features.file-upload.errors.php
      *
-     * @param StreamInterface $stream Underlying stream representing the
-     *     uploaded file content.
+     * @param StreamInterface $stream underlying stream representing the
+     *                                uploaded file content
      * @param int $size in bytes
      * @param int $error PHP file upload error
-     * @param string $clientFilename Filename as provided by the client, if any.
-     * @param string $clientMediaType Media type as provided by the client, if any.
+     * @param string $clientFilename filename as provided by the client, if any
+     * @param string $clientMediaType media type as provided by the client, if any
      *
-     * @return UploadedFileInterface
-     *
-     * @throws \InvalidArgumentException If the file resource is not readable.
+     * @throws \InvalidArgumentException if the file resource is not readable
      */
     public function createUploadedFile(
         \Psr\Http\Message\StreamInterface $stream,
