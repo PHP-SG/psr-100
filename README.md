@@ -1,3 +1,5 @@
+==== This is not a FIG PSR and has not undergone the rigorous process to become one ====
+
 # PSR 100
 In the interest of standardizing code, particularly standardizing access to PSR 15 factories, PSR 7 interfaces have been appended to have both the factory methods, and the assumed-subject methods (`create`, `createFromFile`, `createFromResource`).
 
@@ -18,6 +20,9 @@ class Middleware implements \Psr\Http\Server\MiddlewareInterface{
 		$newBody = $request->getBody()->create('New Body')
 		# as such, the middleware is self-contained
 		$request->withBody($newBody)
+
+		#...
+
 	}
 }
 ```
